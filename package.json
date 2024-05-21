@@ -1,0 +1,36 @@
+{
+  "name": "tools-for-web",
+  "version": "0.0.1",
+  "description": "基于babel构建的javascript-浏览器端工具库",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "sh build/build.sh",
+    "release": "sh build/release.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimshift/tools-for-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kimshift/tools-for-web/issues"
+  },
+  "keywords": [
+    "javaScript",
+    "web",
+    "tools"
+  ],
+  "author": "kimshift",
+  "license": "ISC",
+  "files": [
+    "README.md",
+    "lib/"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5"
+  },
+  "dependencies": {
+    "store2": "^2.14.3"
+  }
+}
