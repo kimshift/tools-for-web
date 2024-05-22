@@ -70,3 +70,18 @@ export const downloadStream = (stream, fileName) => {
     console.log('下载异常:', error.message)
   }
 }
+
+/*******
+ * @description: 图片转base64
+ * @author: 琴时
+ * @param {File} fil
+ * @return {*}
+ */
+export const getBase64 = file => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = error => reject(error)
+  })
+}

@@ -4,10 +4,18 @@
  */
 
 // 文件类
-export { blobToText, downloadStream } from './utils/files'
+export { blobToText, downloadStream, getBase64 } from './utils/files'
 
 // 缓存类
-export { default as store, local, session, setExpires, getExpires } from './utils/store'
+export {
+  default as store,
+  local,
+  session,
+  setExpires,
+  getExpires,
+  getCookie,
+  setCookie,
+} from './utils/store'
 
 // 浏览器信息类
 export {
@@ -20,3 +28,12 @@ export {
   isDingTalk,
   isWeiBo,
 } from './utils/browser'
+
+// 路由类
+export { getHashParam } from './utils/route'
+
+// 移动端类
+export { getScale, sizeConvert } from './utils/mobile'
+
+// 脚本类
+export { createScript } from './utils/core'

@@ -1,5 +1,5 @@
 /*******
- * @description: 本地缓存
+ * @description: 缓存工具
  * @author: 琴时
  */
 import store from 'store2'
@@ -38,4 +38,37 @@ export const getExpires = () => {
   const nowTime = +new Date() // 当前时间戳
   const times = nowTime - (lastTime + expires) // 剩余时间总毫秒数
   return times < 0
+}
+
+/*******
+ * @description: 获取cookie
+ * @author: 琴时
+ * @param {String} key
+ * @return {String}
+ */
+export const getCookie = key => {
+  const name = key + '='
+  const ca = document.cookie.split(';')
+  for (let i = 0; i < ca.length; i++) {
+    const c = ca[i].trim()
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length)
+    }
+  }
+  return ''
+}
+
+/*******
+ * @description: 设置cookie
+ * @author: 琴时
+ * @param {String} key   [键名]
+ * @param {String} value [键值]
+ * @param {Number} day   [有效期/天]
+ * @return {*}
+ */
+export const setCookie = (key, value, day = 7) => {
+  const d = new Date()
+  d.setTime(d.getTime() + day * 24 * 60 * 60 * 1000)
+  const expires = 'expires=' + d.toGMTString()
+  document.cookie = key + '=' + value + '; ' + expires
 }
