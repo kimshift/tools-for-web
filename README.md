@@ -36,6 +36,8 @@ import { API } from 'tools-for-web'
 | 是否钉钉环境               | isDingTalk     |
 | 是否微博环境               | isWeiBo        |
 | 获取哈希路由参数           | getHashParam   |
+| 获取路由参数               | getQueryParams |
+| 获取当前路径               | getPath        |
 | 获取移动端转换比例         | getScale       |
 | 移动端自适应尺寸转换       | sizeConvert    |
 | 创建 script 标签加载 js    | createScript   |
