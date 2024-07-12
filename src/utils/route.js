@@ -27,7 +27,6 @@ export const getQueryParams = () => {
   return params
 }
 
-
 // 获取当前路径
 export function getPath() {
   const { pathname } = window.location
@@ -39,4 +38,16 @@ export function getPath() {
     okPaths.push(...[`${currentPath}index`, `${decodeURIComponent(currentPath)}index`])
   }
   return [...new Set(okPaths)]
+}
+
+/*******
+ * @description: 清除.html后缀
+ * @author: 琴时
+ * @param {Boolean} cleanUrls [是否清除]
+ * @param {String} path
+ * @return {String}
+ */
+export function wrapperCleanUrls(cleanUrls, path = '') {
+  const tempUrl = path.replace(/\.html$/, '')
+  return cleanUrls ? tempUrl : `${tempUrl}.html`
 }

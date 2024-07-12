@@ -30,7 +30,7 @@ export {
 } from './utils/browser'
 
 // 路由类
-export { getHashParam, getQueryParams, getPath } from './utils/route'
+export { getHashParam, getQueryParams, getPath, wrapperCleanUrls } from './utils/route'
 
 // 移动端类
 export { getScale, sizeConvert } from './utils/mobile'
