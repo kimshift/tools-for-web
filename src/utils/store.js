@@ -9,13 +9,20 @@ export default store
  * @description: localStorage缓存
  * get:获取缓存|set:设置缓存|remove:删除缓存
  */
-export const local = store.local
+const local = store.local
+local.getItem = local.get
+local.setItem = local.set
+local.removeItem = local.remove
 /*******
  * @description: sessionStorage缓存
  * get:获取缓存|set:设置缓存|remove:删除缓存
  */
-export const session = store.session
 
+const session = store.session
+session.getItem = session.get
+session.setItem = session.set
+session.removeItem = session.remove
+export { session, local }
 /*******
  * @description: 设置过期时间
  * @author: 琴时
