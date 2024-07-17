@@ -2,9 +2,11 @@
  * @description: 浏览器信息
  * @author: 琴时
  */
-
-const ua = navigator.userAgent // 获取设备信息
-
+let ua = ''
+try {
+  // 获取设备信息
+  ua = navigator?.userAgent
+} catch (error) {}
 /*******
  * @description: 浏览器内核
  * @author: 琴时
