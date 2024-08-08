@@ -36,4 +36,4 @@ export { getHashParam, getQueryParams, getPath, wrapperCleanUrls } from './utils
 export { getScale, sizeConvert } from './utils/mobile'
 
 // 脚本类
-export { createScript, copeText } from './utils/core'
+export { createScript, copyText } from './utils/core'

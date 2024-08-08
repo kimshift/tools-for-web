@@ -42,3 +42,4 @@ import { API } from 'tools-for-web'
 | 移动端自适应尺寸转换       | sizeConvert      |
 | 创建 script 标签加载 js    | createScript     |
 | 清除.html 后缀             | wrapperCleanUrls |
+| 复制文本                   | copyText         |
