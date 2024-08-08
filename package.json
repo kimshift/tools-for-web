@@ -1,6 +1,6 @@
 {
   "name": "tools-for-web",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "基于babel构建的javascript-浏览器端工具库",
   "main": "lib/index.js",
   "scripts": {
