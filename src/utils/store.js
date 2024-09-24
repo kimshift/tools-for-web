@@ -24,17 +24,17 @@ session.setItem = session.set
 session.removeItem = session.remove
 export { session, local }
 /*******
- * @description: 设置过期时间
+ * @description: 设置有效期信息
  * @author: 琴时
- * @param {Number} value [过期时间，单位毫秒] [默认30分钟]
+ * @param {Number} value [到期时间，单位毫秒] [默认30分钟]
  */
 export const setExpires = (value = 30 * 60 * 1000) => {
   session.set('user_last_time', +new Date()) //最后一次设置缓存时间
-  session.set('user_expires', value) //设置过期时间，单位毫秒
+  session.set('user_expires', value) //设置到期时间，单位毫秒
 }
 
 /*******
- * @description: 获取过期状态
+ * @description: 获取有效期信息
  * @author: 琴时
  * @return {Boolean} true:未过期 false:已过期
  */
@@ -48,12 +48,21 @@ export const getExpires = () => {
 }
 
 /*******
+ * @description: 移除有效期信息
+ * @author: 琴时
+ */
+export const removeExpires = () => {
+  session.remove('user_last_time')
+  session.remove('user_expires')
+}
+
+/*******
  * @description: 获取cookie
  * @author: 琴时
  * @param {String} key
  * @return {String}
  */
-export const getCookie = key => {
+export const getCookie = (key) => {
   const name = key + '='
   const ca = document.cookie.split(';')
   for (let i = 0; i < ca.length; i++) {

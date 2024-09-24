@@ -13,6 +13,7 @@ export {
   session,
   setExpires,
   getExpires,
+  removeExpires,
   getCookie,
   setCookie,
 } from './utils/store'
