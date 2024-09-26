@@ -14,8 +14,11 @@ export {
   setExpires,
   getExpires,
   removeExpires,
-  getCookie,
   setCookie,
+  getCookie,
+  getCookies,
+  removeCookie,
+  removeCookies,
 } from './utils/store'
 
 // 浏览器信息类

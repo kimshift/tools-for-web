@@ -75,6 +75,22 @@ export const getCookie = (key) => {
 }
 
 /*******
+ * @description: 获取所有cookie
+ * @author: 琴时
+ * @return {Array}
+ */
+export const getCookies = () => {
+  let cookies = []
+  if (document.cookie.length === 0) return cookies
+  let array = document.cookie.split('; ') //通过分号连空格将字符串切割成数组
+  cookies = array.map((item) => {
+    let [key, value] = item.split('=') // 通过=再次切割
+    return { key, value }
+  })
+  return cookies
+}
+
+/*******
  * @description: 设置cookie
  * @author: 琴时
  * @param {String} key   [键名]
@@ -83,18 +99,34 @@ export const getCookie = (key) => {
  * @return {*}
  */
 export const setCookie = (key, value, day) => {
-  let cookie = key + '=' + value + ';path=/;'
+  let cookie = key + '=' + value + '; path=/'
 
   if (day != undefined) {
     const d = new Date()
     d.setTime(d.getTime() + day * 24 * 60 * 60 * 1000)
-    const expires = 'expires=' + d.toGMTString()
+    const expires = '; expires=' + d.toGMTString()
     cookie += expires
   }
 
   document.cookie = cookie
 }
 
+/*******
+ * @description: 删除指定cookie
+ * @author: 琴时
+ * @param {*} key [指定cookies的键]
+ * @return {*}
+ */
 export const removeCookie = (key) => {
-  document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+  setCookie(key, '', -1) // 将生命周期改为-1
+}
+/*******
+ * @description:删除所有cookie
+ * @author: 琴时
+ * @return {*}
+ */
+export const removeCookies = () => {
+  getCookies().forEach((cookie) => {
+    setCookie(cookie.key, '', -1) //将生命周期改为-1==>使其失效
+  })
 }
