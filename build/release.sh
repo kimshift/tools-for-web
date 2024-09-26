@@ -9,13 +9,13 @@ fi
 # 发布命令:npm run release
 
 # 补丁修改---修改小版本
-npm version patch
+# npm version patch
 
 # 新增功能---修改中版本
 # npm version minor
 
 # 重大修改---修改大版本
-# npm version major
+npm version major
 
 version=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 echo "当前最新版本号：'$version'"

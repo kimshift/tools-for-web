@@ -79,12 +79,22 @@ export const getCookie = (key) => {
  * @author: 琴时
  * @param {String} key   [键名]
  * @param {String} value [键值]
- * @param {Number} day   [有效期/天]
+ * @param {Number} day   [有效期/天] | 不传默认当前会话有效
  * @return {*}
  */
-export const setCookie = (key, value, day = 7) => {
-  const d = new Date()
-  d.setTime(d.getTime() + day * 24 * 60 * 60 * 1000)
-  const expires = 'expires=' + d.toGMTString()
-  document.cookie = key + '=' + value + '; ' + expires
+export const setCookie = (key, value, day) => {
+  let cookie = key + '=' + value + ';path=/;'
+
+  if (day != undefined) {
+    const d = new Date()
+    d.setTime(d.getTime() + day * 24 * 60 * 60 * 1000)
+    const expires = 'expires=' + d.toGMTString()
+    cookie += expires
+  }
+
+  document.cookie = cookie
+}
+
+export const removeCookie = (key) => {
+  document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
 }
