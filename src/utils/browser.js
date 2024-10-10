@@ -3,7 +3,7 @@
  * @author: 琴时
  */
 let ua = ''
-if (typeof window === 'undefined') {
+if (typeof window !== 'undefined') {
   ua = navigator?.userAgent // 获取设备信息
 }
 
