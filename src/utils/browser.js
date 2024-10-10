@@ -4,7 +4,7 @@
  */
 let ua = ''
 if (typeof window !== 'undefined') {
-  ua = navigator?.userAgent // 获取设备信息
+  ua = navigator.userAgent // 获取设备信息
 }
 
 /*******
