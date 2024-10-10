@@ -63,6 +63,7 @@ export const removeExpires = () => {
  * @return {String}
  */
 export const getCookie = (key) => {
+  if (typeof document === 'undefined') return ''
   const name = key + '='
   const ca = document.cookie.split(';')
   for (let i = 0; i < ca.length; i++) {
@@ -81,6 +82,7 @@ export const getCookie = (key) => {
  */
 export const getCookies = () => {
   let cookies = []
+  if (typeof document === 'undefined') return cookies
   if (document.cookie.length === 0) return cookies
   let array = document.cookie.split('; ') //通过分号连空格将字符串切割成数组
   cookies = array.map((item) => {
@@ -107,7 +109,7 @@ export const setCookie = (key, value, day) => {
     const expires = '; expires=' + d.toGMTString()
     cookie += expires
   }
-
+  if (typeof document === 'undefined') return
   document.cookie = cookie
 }
 

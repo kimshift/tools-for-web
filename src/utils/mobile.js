@@ -76,6 +76,7 @@ const countNumber = (arg1, arg2, type = 'sum') => {
  * @return {*}
  */
 export const getScale = (size = 75) => {
+  if (typeof window === 'undefined') return 1
   const htmlElement = document.documentElement
   const fontSize = window.getComputedStyle(htmlElement).fontSize
   const scale = countNumber(parseFloat(fontSize), size, 'divide')

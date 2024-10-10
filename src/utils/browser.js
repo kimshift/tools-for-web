@@ -3,10 +3,10 @@
  * @author: 琴时
  */
 let ua = ''
-try {
-  // 获取设备信息
-  ua = navigator?.userAgent
-} catch (error) {}
+if (typeof window === 'undefined') {
+  ua = navigator?.userAgent // 获取设备信息
+}
+
 /*******
  * @description: 浏览器内核
  * @author: 琴时

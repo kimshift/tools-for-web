@@ -5,6 +5,7 @@
  * @return {*}
  */
 export const createScript = (url = '') => {
+  if (typeof window === 'undefined') return
   let scriptTags = window.document.querySelectorAll('script')
   let len = scriptTags.length
   let i = 0
@@ -37,6 +38,7 @@ export const createScript = (url = '') => {
  * @return {*}
  */
 export function copyText(text) {
+  if (typeof window === 'undefined') return
   if (navigator.clipboard) {
     copyText = (text) => {
       navigator.clipboard.writeText(text)

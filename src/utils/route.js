@@ -4,8 +4,10 @@
  * @param {String} key
  * @return {*}
  */
-export const getHashParam = key => {
+export const getHashParam = (key) => {
   const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)')
+  if (typeof window === 'undefined') return null
+  // 只有当在浏览器环境中时才执行下面的代码
   const queryString = window.location.href.split('?')[1] || ''
   const result = queryString.match(reg)
   return result ? decodeURIComponent(result[2]) : null
@@ -17,10 +19,11 @@ export const getHashParam = key => {
  * @return {*}
  */
 export const getQueryParams = () => {
+  if (typeof window === 'undefined') return null
   const queryString = window.location.href.split('?')[1] || ''
   if (!queryString) return null
   const params = {}
-  queryString.split('&').forEach(param => {
+  queryString.split('&').forEach((param) => {
     const [key, value] = param.split('=')
     params[decodeURIComponent(key)] = decodeURIComponent(value)
   })
@@ -29,6 +32,7 @@ export const getQueryParams = () => {
 
 // 获取当前路径
 export function getPath() {
+  if (typeof window === 'undefined') return []
   const { pathname } = window.location
   const currentPath = pathname.replace(/.html$/, '')
   // 兼容中文路径
